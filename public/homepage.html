@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>The Ssebulibas</title>
+
+<!-- Add these links to your HTML head section -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    #header .countdown {
+  margin-bottom: 80px;
+}
+
+        /* Blinking animation */
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+#header .countdown div {
+  text-align: center;
+  margin: 10px;
+  width: 100px;
+  padding: 15px 0;
+  background: rgba(255, 255, 255, 0.12);
+  border-top: 5px solid #ff0000;
+}
+
+#header .countdown div h3 {
+  font-weight: 700;
+  font-size: 44px;
+  margin-bottom: 15px;
+}
+
+#header .countdown div h4 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+@media (max-width: 575px) {
+  #header .countdown div {
+    width: 70px;
+    padding: 10px 0;
+    margin: 10px 8px;
+  }
+
+  #header .countdown div h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  #header .countdown div h4 {
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+
+        #countdown-section {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #countdown {
+            font-size: 24px;
+            color: rgb(251, 0, 0);
+            font-weight: bold;
+        }
+#photo-gallery {
+      text-align: center;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .gallery a {
+      display: block;
+    }
+
+    .gallery img {
+  width: 100%;
+  height: 100%; /* Set height to 100% */
+  object-fit: contain; /* Use 'contain' to maintain aspect ratio and fit inside the container */
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+    #familyList li {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+  }
+    
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+    body {
+      padding-top: 56px; /* Adjusted for the fixed navbar */
+    }
+    .jumbotron {
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      min-height: 100vh; /* Minimum height of 100% of the viewport height */
+      margin-bottom: 0; /* Remove default bottom margin */
+    }
+    .jumbotron h1 {
+      font-size: 2.5rem; /* Adjust font size as needed */
+    }
+    .jumbotron p {
+      font-size: 1.5rem; /* Adjust font size as needed */
+    }
+    @media (max-width: 576px) {
+      .jumbotron {
+        min-height: 50vh; /* Adjust for smaller screens */
+      }
+    }
+    .read-more-content {
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #f2f2f2;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Bootstrap Modal -->
+  <div class="modal" id="usernameModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <!-- Semi-transparent overlay -->
+        <div class="modal-overlay"></div>
+        
+        <div class="modal-header">
+          <h5 class="modal-title">Enter Your Kkobe Name</h5>
+        </div>
+        <div class="modal-body">
+          <form id="usernameForm">
+            <div class="form-group">
+              <label for="username">Clan Name:</label>
+              <input type="text" class="form-control" id="username" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-View-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">The Ssebulibas</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-Viewed="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#history">History</a>
+        </li>
+
+            <a class="nav-link" href="#documents">Documents</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#family-members">Family Members</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#photo-gallery">Photo Gallery</a>
+        </li>
+    </li> 
+    <li class="nav-item">
+<a class="nav-link" href="#entertainment">Entertainment</a>
+</li>
+        <li class="nav-item">
+            <a class="nav-link" href="#location">Location</a>
+          <li class="nav-item">
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Jumbotron -->
+  <div class="jumbotron" style="background-image: url('jumbotron.jpg');">
+    <div class="container">
+      <h1 class="display-4" id="welcomeMessage">Welcome</h1>
+    </div>
+  </div>
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex flex-column align-items-center">
+
+      <h2>Next Meeting Starts In:</h2>
+      <div class="countdown d-flex justify-content-center" data-count="2024/06/30">
+        <div>
+          <h3>%d</h3>
+          <h4>Days</h4>
+        </div>
+        <div>
+          <h3>%h</h3>
+          <h4>Hours</h4>
+        </div>
+        <div>
+          <h3>%m</h3>
+          <h4>Minutes</h4>
+        </div>
+        <div>
+          <h3>%s</h3>
+          <h4>Seconds</h4>
+        </div>
+      </div>
+
+      <!-- Download APK Section -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body text-center">
+                    <p><strong>Keep in touch with your relatives. Install our family app now!</strong></p>
+                    <a href="Ssebulibas.apk" download class="btn btn-success btn-lg">Download APK</a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  </header>
+
+  <!-- History Section -->
+  <section id="history" class="container mt-5">
+    <h2>History of Our Clan</h2>
+    <div id="historyContent">
+      <!-- Add your long content here -->
+      <p>
+ A kkobe is a creeping plant grown as a food crop. Its fruit is harvested and prepared wholesomely by steaming in banana leaves. It is a delicacy for other Baganda but not the members of the Kkobe clan (Ab'ekkobe), for them it is a taboo to eat it.
+      </p>
+      <div class="read-more-content">
+        <p>
+            The great grand father and founder of Kkobe clan, Nsereko Kalamazi, was one time under the command of King Kintu (1200-1230). They came from exile in Eastern Uganda to attack and overthrow the notorious Bemba Musota then King of Buganda.
+
+        </p>
+          <p>
+            On their way, Nsereko met a girl and fell in love with her and later proposed to her. One day Nsereko in an entourage of friends went to be introduced to his future in-laws. They were warmly welcomed , seated down on animal skins and served to a banquet. In the middle of the delicious meal, a kkobe fruit fell and hit Nsereko's bald head. Oh! This was a terrible embarrassment to Nsereko in front of the in-laws! From that day he cursed the kkobe and he swore and directed that his children and grand children never to eat kkobe. Hence kkobe became their totem to this day.
+
+        </p>
+
+          <p>
+            Nsereko Kalamazi further joined hands with King Kintu and later on they overthrew Bemba Musota that is known in history of Buganda to have been a dictator, killer, oppressor and very corrupt.
+
+        </p>
+        <p>
+            After the victory, Nsereko settled in Kanyanya near Magonga, Busujju county. Later on, he requested the king to be offered Buzimwa area in Mawokota where his brothers had settled earlier. Nsereko's brothers were: Gubiri, Kakulukuku and Nalugunju. They were under the rule of a Munyoro called Kasamu, the four brothers joined hands and chased Kasamu away. They did the same to other Banyoro chiefs around Teketwe, present day Buwama, the ancestral headquarters of the Kkobe clan.
+
+        </p>
+          <p>
+            Nsereko was known for his tactical ways and wisdom he displayed in the way he used to answer the king's questions. Nsereko was always the first to answer. Because of the quick and wise answers Nsereko would give they called him 'Namuyama' which later changed to 'Namwama'. In Lusese language, 'kwama' means to be the first or to welcome.
+
+        </p>
+          <p>
+            Nsereko was later assigned the duty of regularly fetching god Mukasa (god of the sea and fertility) from Ssese, whenever there was need for the god's intervention. The King always asked Nsereko: "Omugenyi wamuyama" (did you welcome the guest?) (Mukasa), Nsereko would respond; "Omugenyi namuyama" (Yes, your majesty, I welcomed the visitor). From 'Namuyama' - Namwama, the name given to the Clan's ancestral headquarter (Embuga) evolved, that is 'Buwama', in Mawokota county.
+
+        </p>
+          <p>
+            <strong>Nsereko's Immediate Descendants</strong><br>
+            The Kkobe clan forefather Nsereko, had more than ten children, however, the following became very famous:
+            
+                      </p>
+          <p>
+            1. Namukangula, a great hunter during the reign of King Kintu; He would go for the king's meat from the hunting ground. He settled in Buzimwa, did not bear children and on his death he was succeed by his brother Nankule.
+        </p>
+          <p>
+            2. Lwabiriza was King Kintu's chief, he settled in Magonga, Busujju county. The king honoured him with land in Katoolingo Busiro county and later assigned him duties of:
+
+        </p>
+          <p>
+            a) Digging graves for dead princes
+        </p>
+          <p>
+            b) Removing jaw - bones from dead kings for preservation and honour.
+            Lwabiriza had children but the most prominent was Junior Lwabiriza who accompanied prince Kalemeera to Bunyoro.
+
+        </p>
+          <p>
+            3. Mabingo Magere was in charge of fixing the king's spear, which he used in piercing a kob whose skin was used to make a special dress called enkanamo for the king. Mabingo settled in Magonga.
+        </p>
+        <p>
+            4. Kiraga and his sister Nambwami were customary placed by Nsereko as symbols of his parentage. When he had twins, Nsereko performed a ritual called: "Okumenya olukanda as Nabwami and Kiraga stood in for Nsereko's father and mother since both parents were dead.
+        </p>
+          <p>
+            5. Kyana of Tiribogo, Mawokota county, leads the royal lineage (Olunyiriri olulangira) in the Kkobe clan (see page…).
+        </p>
+          <p>
+            6. Walubandwa - Kabengwa, was also a great hunter, lived in Buzimwa with other Kkobe clan members and died there.
+        </p>
+          <p>
+            7. Nakanyakaali father to Kakinda of Jjalamba and Mukooge of Ggolo Mawokota county.
+
+        </p>
+          <p>
+            Nsereko had other sons like; Kayiwa, Busuulwa among many others.
+
+        </p>
+          <p>
+            The burial grounds for the Namwamas and their grand children are at Buzimwa, Ssabagabo - Mudduuma subcounty 22 miles along Mityana road.
+
+        </p>
+          <p>
+            The Ancestral headquarter for kkobe clan is at Buwama Musaale Subcounty along -Masaka road. It is said that the fore-father of the clan, Nsereko Kalamazi mysteriously vanished in Teketwe hill - Buwama.
+
+        </p>
+          <p>
+            Nsereko had a spear known as "Mazina gandigita" he used in many expansion and conquest wars against the Banyoro. He captured Teketwe, Kayenye, Misindye and Kyabadaaza from them.
+
+        </p>
+          <p>
+            Nsereko's last battle against the Banyoro extended as far as Kayenje and Misimdye in Mawokota. During this war he sounded his war drum Tagobwa (the unchallengeable) commanded one of the platoons and usually on the front line. His son Kabengwa who loved his dog like life itself commanded another platoon. He changed the sounding of his father's drum to; "Embwa ekooye gireete erye eggumba. Ye omukazi leka eyo" meaning, "My dog is worn out and hungry serve it with food, don't mind the woman." That lyric later formed part of the Kkobe clan anthem (Omubala).
+
+        </p>
+        <p>
+            After Nsereko Kalamazi had defeated all the Banyoro around Teketwe (Buwama) he asked Kabaka Kintu for a permission to settle there so as to continue with the responsibility of always fetching Mukasa from Ssese. It was for this reason that Nsereko acquired two territories including Buzimwa.
+
+        </p>
+          <p>
+            <strong>SOME PROMINENT KKOBE CLANSMEN OF HISTORICAL TIMES</strong><br>
+            These were great men and women in the Kingdom of Buganda because of the contributions they made to the growth of the kingdom. These people are still remembered to date, and they include:          </p>
+          <p>
+            1. Nsereko Kalamazi, the fore father and founder of the Kkobe clan was a fierce warrior who joined hands with Kabaka Kintu and together they defeated the notorious Bbemba Musota. Nsereko defeated the Banyoro from Mawokota and Butambala counties.
+        </p>
+          <p>
+            2. Kyewaalabye of Kaabyuma was county chief of Buweekula. From him, the name/title Luweekula was derived because whenever Banyoro women heard the mention of Kyewaalabye's name, they would flee carrying their young ones on their backs. It would only be at a distance that they got the children from the backs "okuweekula" and feed them.
+
+        </p>
+          <p>
+            From "okuweekula" the nickname Luweekula for Kyewalabye originated. Kyewalabye defeated the Banyoro in Buweekula county during the reign of Kabaka Kamaanya. He assumed the title Luweekula after many conquests, and became a county chief of Buweekula. Before this he was a sub-county chief of Ssabawaali Ssingo.
+
+        </p>
+          <p>
+            It is said that one time Kyewaalabye was waging an expansion war against the Banyoro, and got tired, before he slept, he assigned the women to keep watch and to wake the warriors up if anything suspicious happened; unfortunately however, even the women fell into deep sleep. If the dogs had not taken over the responsibility of watching over the camp, the Banyoro would have made a surprise attack on Kyewaalabye and his men.
+
+        </p>
+          <p>
+            There was a Munyoro black Smith living in Kaabyuma village he was called Lukubabyuma. In this village there were iron deposits, which Lukababyuma would mine, smelt and make implements of metal. Kyewaalabye chased the black smith from the village. The village's name has its etymology from "byuma" meaning metal, hence Kaabyuma meaning a village of iron (metal).
+
+
+        </p>
+          <p>
+            3. Ssebuliba of Buddo, is another great Kkobe clan member of historical times. He lived and excelled during the reign of Kabaka Ssemakookiro. He was the man the Kabaka asked for a big favour. It is said that following directives of the Kabaka's fortuneteller, Ssebuliba was requested that he be locked in a grass-thatched house and it was set on fire. The aim of this was to tell whether Ssemakookiro would defeat Jjunju his brother or not. If Ssebuliba survived the fire, that would prove the Kabaka's victor and vice versa.
+
+        </p>
+          <p>
+            Ssebuliba survived the fire together with his dog, yet all his wives and children deserted him. He pampered the dog even the more after this incident, so the dog came out prominently even then.
+            Later Kabaka Ssemakookiro made Ssebuliba his Chief over Buddo Coronation grounds.
+
+
+        </p>
+        <p>
+            4. Mutumba, a great warrior during Kabaka Kyabaggu's time. He also played a role in Viewing the Buganda Kingdom westwards. He chased the Banyoro chiefs that occupied Lubanja in Ssingo County together with their people.
+
+        </p>
+          <p>
+            Among the great Banyoro chiefs Mutumba chased was the great Namunkululu. After his victory Mutumba resolved to protect the new territory.
+
+        </p>
+          <p>
+            He got help from Namwamma who sent him men led by his son Ssebuliba. When Ssebuliba reached Lubanja area, he continued with conquering the Banyoro to the last one.
+
+        </p>
+          <p>
+            A legend goes that, one-day Ssebuliba was coming back home from war and he urinated in a small valley. The direction the urine took mysteriously became a source of a brook called Ssebuliba, to date. It is at the source of this river that Namwama planted "omutuba" for Ssebuliba, omutuba tree planting in this case served as the symbol for ownership of the land in question.
+
+        </p>
+          <p>
+            Prominent women of the Kkobe clan include Namale Nkomommo who was a king's court entertainer during Kabaka Edward Muteesa ll. Others were Hadija Namale, Maliyamy Namale among many others.
+
+        </p>
+        <p>
+         <strong> THE NINE SSIGA DEPARTMENTS OF KKOBE CLAN AND THEIR ANCESTRAL LOCATIONS
+        </strong></p>
+        <ol>
+          <li>Namukangula of Bongole, Mawokota</li>
+          <li>Lwabiriza of Katoolingo, Busiro</li>
+            <li>Kawuma of Wassozi, Mawokota</li>
+            <li>Kakinda of Jjalamba, Mawokota</li>
+            <li>Kabengwa of Bulumbu, Busiro</li>
+            <li>Kaseenya of Buseenya, Butambala</li>
+            <li>Wanda of Misindye, Mawokota</li>
+            <li>Busuulwa of Nkozi, Mawokota</li>
+            <li>Kayiwa of Buyiwa, Mawokota</li>
+          </ol> 
+          <p>
+            <p>
+              <strong>Olunyiriri lw'Akasolya (oluusi luyitibwa "olulangira")<br>
+              </strong>Waliwo n'olunyiriri lw'akasolya mu kika ky'Abekkobe olukulemberwa Omutaka Kyana e Ttiribogo luno nga lusibuka Buzimwa mu Mawokota. Luno lwe luvaamu abalya Obwannamwama. Olunyiriri luno (lyandibadde ssiga mu ngeri ya bulijjo) lwe luyitibwa olw'abalangira mu Bekkobe era lwo lwetuukira butereevu ku Namwama omukulu w'ekika. Lulimu emituba "emirangira" gino wammanga:  
+          </p>
+          <p><ol>
+            <li>Bukaba e Kawaala</li>
+            <li>Kavavagalo e Kayabwe, Mawokota</li>
+            <li>Kiragga e Katuuso, Mawokota</li>
+            <li>Kitemagwa e Magala, Mawokota</li>
+            <li>Magajja e Magala, Mawokota</li>
+            <li>Muwakanya e Magala, Mawokota</li>
+            <li>Nabbumba e Magala, Mawokota</li>
+            <li>Nakatanza e Vvumba, Mawokota</li>
+            <li>Nalugunju e Teketwe, Mawokota</li>
+            <li>Namateeka e Nkana Magya, Mawokota</li>
+            <li>Nankolazzibi e Kiwumu, Busiro</li>
+            <li>Nkweyambye e Mbizzinnya, Mawokota</li>
+            <li>Ntaate e Kiboga</li>
+            <li>Ssebitere e Maggya, Mawokota</li>
+            <li>Ssebuliba e Lubanja, Singo</li>
+            <li>Ssekkonge e Butamba, Mawokota</li>
+            <li>Ssemombwe e Kisaliza, Busujju</li>
+          </ol>
+          
+        </p> 
+        
+
+
+
+      </div>
+      <a href="javascript:void(0)" id="readMoreBtn" onclick="toggleReadMore()"><strong> Read more...</strong></a>
+    </div>
+  </section>
+
+  <section id="documents" class="container mt-5">
+    <h2>Documents</h2>
+    <p>Explore the rich history of the Kkobe Clan through this book: <strong>Ekika Ky'Ekkobe</strong>.</p>
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="Ekika Ky'ekkobe.PDF.pdf" allowfullscreen></iframe>
+    </div>
+    <br>
+    <p>Read through the minutes of our Get Together Family Meeting held on <strong>2nd December 2023</strong>.</p>
+
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" src="GET TOGETHER FAMILY MEETING MINUTES.pdf" allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- Add a modal container to the body -->
+<div class="modal" id="memberModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="memberModalTitle">Member Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img id="memberImage" class="img-thumbnail" alt="Member Image">
+          <p><strong>Name:</strong> <span id="memberName"></span></p>
+          <p><strong>Age:</strong> <span id="memberAge"></span></p>
+          <p><strong>Contact:</strong> <span id="memberContact"></span></p>
+          <p><strong>Location:</strong> <span id="memberLocation"></span></p>
+          <p><strong>Father's Name:</strong> <span id="memberParents"></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<!-- Family Members Section -->
+<section id="family-members" class="container mt-5">
+    <h2>Family Members</h2>
+    <p>The family of the <em>Late Reverend Enock Kyaluzi Ssebuliba</em> has grown into a large community. In addition to the late Reverend's children, the family has expanded over the years with subsequent generations. </p>
+
+    <!-- Explanation of Family Tree Colors -->
+<div style="margin-bottom: 10px;">
+  <p>
+    <strong>Interpretation of the Family Tree Colours:</strong><br>
+    <span style="margin-right: 15px; color: #17a2b8;">💙</span>: Parents<br>
+    <span style="margin-right: 15px; color: #28a745;">💚</span>: Children<br>
+    <span style="margin-right: 15px; color: #dc3545;">❤️</span>: Grandchildren<br>
+    <span style="margin-right: 15px; color: #ffa600;">💛</span>: Great-Grandchildren<br>
+  </p>
+  <p>
+    <strong>NB:</strong> <em>The colours in the family tree are not merely for decoration! Although the deeper you go, the more colourful it becomes, each depth of this Family Tree conveys meaningful insights about every individual's generational level.</em>
+  </p>
+</div>
+
+    <div class="container mt-4 text-center">
+      <button class="btn btn-info" id="toggleBtn">View Family Tree</button>
+      <div id="familyTree" class="mt-3">
+        <!-- Family tree content will be dynamically generated here -->
+      </div>
+    </div>
+    <strong><ol id="familyList">
+      <!-- Add data-member attributes for each family member -->
+     <li data-member="Mutumba Jesse Paul"data-age="27" data-contact="0750687790" data-location="Namungoona" data-parents="Kyewalabye Robert" data-image="Mutumba Jesse Paul.jpg">Mutumba Jesse Paul</li>
+      <li data-member="Nsereko Moses "data-age="62" data-contact="0771935360" data-location="Kkumbu" data-parents="Lt. Rev. Enock Ssebuliba" data-image="Nsereko Moses.jpg">Nsereko Moses</li>
+      <li data-member="Kawuma Derrick "data-age="25" data-contact="+49 1575 4442199" data-location="Germany" data-parents="Kyewalabye Robert" data-image="Kawuma Derrick.jpg">Kawuma Derrick</li>
+      <li data-member="Nakayiwa Jane Christine Birimuye Kwagalakwe Kiwumulo"data-age="28" data-contact="0779757278" data-location="Luweero" data-parents="" data-image="Nakayiwa Jane.jpg">Nakayiwa Jane Christine Birimuye Kwagalakwe Kiwumulo</li>
+      <li data-member="Ssebuliba Enock "data-age="32" data-contact="0704053669" data-location="Kimwanyi" data-parents="" data-image="Ssebuliba Enock.jpg">Ssebuliba Enock</li>
+      <li data-member="Nakakaawa Jane "data-age="35" data-contact="0756360582" data-location="" data-parents="" data-image="Nakakaawa Jane.jpg">Nakakaawa Jane</li>
+      <li data-member="Nantumbwe Winnie "data-age="32" data-contact="0708102904" data-location="" data-parents="" data-image="no-image-available.png">Nantumbwe Winnie</li>
+      <li data-member="Nsereko Eriab "data-age="25" data-contact="0754275289" data-location="" data-parents="" data-image="Nsereko Eriab.jpg">Nsereko Eriab</li>
+      <li data-member="Kayongo Samuel "data-age="30" data-contact="0787943831" data-location="Kamuli" data-parents="Kyewalabye Robert" data-image="Kayongo Samuel.jpg">Kayongo Samuel</li>
+      <li data-member="Mulungi Liam "data-age="4" data-contact="" data-location="Kamuli" data-parents="Kayongo Samuel" data-image="Mulungi Liam.jpg">Mulungi Liam</li>
+      <li data-member="Ssekamatte Raymond "data-age="28" data-contact="0751462286" data-location="Ow'Obulenzi" data-parents="Kyewalabye Robert" data-image="no-image-available.png">Ssekamatte Raymond</li>
+      <li data-member="Ssuubi Miriam "data-age="24" data-contact="0788477416" data-location="" data-parents="Kyewalabye Robert" data-image="Ssuubi Miriam.jpg">Ssuubi Miriam</li>
+      <li data-member="Kyewalabye Collines "data-age="23" data-contact="0742892513" data-location="Kiyimbwe" data-parents="Kyewalabye Robert" data-image="Kyewalabye Collines.jpg">Kyewalabye Collines</li>
+      <li data-member="Ssebuliba Hannington "data-age="22" data-contact="0776195368" data-location="" data-parents="" data-image="Hannington Ssebuliba.jpg">Ssebuliba Hannington</li>
+      <li data-member="Ezra Enock Mugabi Ssebuliba "data-age="8" data-contact="0772416313" data-location="" data-parents="" data-image="Ezra Enock Mugabi Ssebuliba.jpg">Ezra Enock Mugabi Ssebuliba</li>
+      <li data-member="Christine Rhona Nantumbwe Kwagalakwe "data-age="21" data-contact="" data-location="" data-parents="" data-image="Christine Rhoda Nantumbwe Kwagalakwe.jpg">Christine Rhona Nantumbwe Kwagalakwe</li>
+      <li data-member="Joel Silas Busuulwa "data-age="9" data-contact="" data-location="" data-parents="" data-image="Joel Silas Busuulwa.jpg">Joel Silas Busuulwa </li>
+      <li data-member="Cathryn Nsereko "data-age="18" data-contact="0706442225" data-location="Kkumbu" data-parents="" data-image="Cathryn Nsereko.jpg">Cathryn Nsereko</li>
+      <li data-member="Hannington Lule "data-age="25" data-contact="+49 1521 6438675" data-location="" data-parents="" data-image="Brian Hannington Lule.jpg">Hannington Lule</li>
+      <li data-member="Arnold Paul Enock Ssebuliba "data-age="26" data-contact="0779576943" data-location="" data-parents="" data-image="Arnold Paul Enock Ssebuliba.jpg">Arnold Paul Enock Ssebuliba</li>
+      <li data-member="Christine Liz Nalule  "data-age="27" data-contact="0780253707" data-location="France" data-parents="" data-image="Christine Liz Nalule.jpg">Christine Liz Nalule </li>
+      <li data-member="Enock Mugabi Ssebuliba "data-age="43" data-contact="" data-location="" data-parents="" data-image="Enock Mugabi Ssebuliba.jpg">Enock Mugabi Ssebuliba</li>
+      <li data-member="Gladys Grace Nambalirwa Tendo "data-age="19" data-contact="" data-location="" data-parents="" data-image="Gladys Grace Nambalirwa Tendo.jpg">Gladys Grace Nambalirwa Tendo</li>
+      <li data-member="Nambalirwa Vivian Faith Kwagalakwe "data-age="17" data-contact="0704650106" data-location="" data-parents="" data-image="Nambalirwa Vivian Faith Kwagalakwe.jpg">Nambalirwa Vivian Faith Kwagalakwe</li>
+      <li data-member="David Ssebuliba "data-age="23" data-contact="0753310289" data-location="" data-parents="" data-image="David Ssebuliba.jpg">David Ssebuliba </li>
+      <li data-member="Nakakaawa Jane "data-age="33" data-contact="0756360582" data-location="" data-parents="" data-image="Nakakaawa Jane.jpg">Nakakaawa Jane</li>
+      <li data-member="Nakakaawa Primah "data-age="9" data-contact="" data-location="" data-parents="" data-image="Primah & Mariam.jpg">Nakakaawa Primah</li>
+      <li data-member="Nakakaawa Mariam "data-age="8" data-contact="" data-location="" data-parents="" data-image="Primah & Mariam.jpg">Nakakaawa Mariam </li>
+      <li data-member="Nantumbwe Winnie "data-age="29" data-contact="" data-location="" data-parents="" data-image="no-image-available.png">Nantumbwe Winnie</li>
+      <li data-member="Nantumbwe Nilsar "data-age="11" data-contact="" data-location="" data-parents="" data-image="Nilsar.jpg">Nantumbwe Nilsar</li>
+      <li data-member="Namale Agnes "data-age="36" data-contact="0775155959" data-location="" data-parents="" data-image="no-image-available.png">Namale Agnes </li>
+      <li data-member="Ssebuliba David "data-age="26" data-contact="" data-location="" data-parents="" data-image="Ssebuliba David.jpg">Ssebuliba David</li>
+      <li data-member="Mutumba Gideon Divine "data-age="12" data-contact="" data-location="" data-parents="" data-image="no-image-available.png">Mutumba Gideon Divine </li>
+      <li data-member="Busuulwa Emmie Ssebuliba "data-age="97" data-contact="0772408417" data-location="" data-parents="Lt. Rev. Enock Ssebuliba" data-image="no-image-available.png">Busuulwa Emmie Ssebuliba</li>
+      <li data-member="Carol Grace Nantege Kwagalakwe "data-age="14" data-contact="0782704361" data-location="" data-parents="" data-image="Carol Grace Nantege Kwagalakwe.jpg">Carol Grace Nantege Kwagalakwe</li>
+      <li data-member="Nantege Gloria "data-age="26" data-contact="0705040009" data-location="" data-parents="" data-image="no-image-available.png">Nantege Gloria </li>
+      <li data-member="Mutumba Joel "data-age="0" data-contact="" data-location="" data-parents="" data-image="Joel Silas Busuulwa.jpg">Mutumba Joel</li>
+      <li data-member="Nantumbwe Eve Laurine "data-age="11" data-contact="" data-location="" data-parents="" data-image="Eve Laurine.jpg">Nantumbwe Eve Laurine</li>
+      <li data-member="Namale Linda "data-age="7" data-contact="" data-location="" data-parents="" data-image="Linda.jpg">Namale Linda</li>
+      <li data-member="Henry Mugera Mayanja "data-age="38" data-contact="0772545958" data-location="" data-parents="" data-image="Henry Mugerwa Mayanja.jpg">Henry Mugera Mayanja</li>
+      <li data-member="Racheal Ttendo Nantege "data-age="29" data-contact="0706136199" data-location="" data-parents="" data-image="Racheal Ttendo Nantege.jpg">Racheal Ttendo Nantege</li>
+      <li data-member="Mutambuze Saul "data-age="63" data-contact="0779516827" data-location="Kikungwe" data-parents="Lt. Rev. Enock Ssebuliba" data-image="Mutambuze Saul.jpg">Mutambuze Saul</li>
+      <li data-member="Ssenga Sarah "data-age="72" data-contact="0784162946" data-location="Kikungwe" data-parents="Lt. Rev. Enock Ssebuliba" data-image="no-image-available.png">Ssenga Sarah</li>
+      <li data-member="Taata Sseka "data-age="82" data-contact="0772687163" data-location="Kikungwe" data-parents="Lt. Rev. Enock Ssebuliba" data-image="no-image-available.png">Ttaata Sseka</li>
+      <li data-member="Winnie Angella "data-age="10" data-contact="" data-location="" data-parents="" data-image="no-image-available.png">Winnie Angella</li>
+      <li data-member="Sheilah "data-age="12" data-contact="" data-location="" data-parents="" data-image="no-image-available.png">Sheilah</li>
+      <li data-member="Declyne "data-age="8" data-contact="" data-location="" data-parents="" data-image="no-image-available.png">Declyne</li>
+      <li data-member="Kyle "data-age="7" data-contact="" data-location="" data-parents="" data-image="no-image-available.png">Kyle</li>
+      <li data-member="Lianah "data-age="3" data-contact="" data-location="Kamuli" data-parents="Kayongo Samuel" data-image="Liana.jpg">Lianah</li>
+      <li data-member="Esau "data-age="26" data-contact="" data-location="" data-parents="" data-image="no-image-available.png">Esau</li>
+      <li data-member="Tivia "data-age="14" data-contact="" data-location="Kamuli" data-parents="" data-image="no-image-available.png">Tivia</li>
+      <li data-member="Eric "data-age="19" data-contact="" data-location="" data-parents="" data-image="no-image-available.png">Eric</li>
+    </ol></strong>
+  </section>
+
+  
+
+<!-- Photo Gallery Section -->
+<section id="photo-gallery" class="container mt-5">
+  <h2>Photo Gallery</h2>
+  <p>Below are some of the family photos. Click on a photo to zoom in and have a clear view.</p>
+
+  <div class="gallery">
+    <a data-fancybox="gallery" data-caption="Arnold Paul Enock Ssebuliba" href="Arnold Paul Enock Ssebuliba.jpg">
+      <img src="Arnold Paul Enock Ssebuliba.jpg" alt="Arnold Paul Enock Ssebuliba">
+    </a>
+    
+        <a data-fancybox="gallery" data-caption="Brian Hannington Lule" href="Brian Hannington Lule.jpg">
+          <img src="Brian Hannington Lule.jpg" alt="Brian Hannington Lule">
+        </a>
+        
+            <a data-fancybox="gallery" data-caption="Carol Grace Nantege Kwagalakwe" href="Carol Grace Nantege Kwagalakwe.jpg">
+              <img src="Carol Grace Nantege Kwagalakwe.jpg" alt="Carol Grace Nantege Kwagalakwe">
+            </a>
+            
+                <a data-fancybox="gallery" data-caption="Cathryn Nsereko" href="Cathryn Nsereko.jpg">
+                  <img src="Cathryn Nsereko.jpg" alt="">
+                </a>
+                
+                    <a data-fancybox="gallery" data-caption="Christine Liz Nalule" href="Christine Liz Nalule.jpg">
+                      <img src="Christine Liz Nalule.jpg" alt="Christine Liz Nalule">
+                    </a>
+                    
+                        <a data-fancybox="gallery" data-caption="Christine Rhoda Nantumbwe Kwagalakwe" href="Christine Rhoda Nantumbwe Kwagalakwe.jpg">
+                          <img src="Christine Rhoda Nantumbwe Kwagalakwe.jpg" alt="Christine Rhoda Nantumbwe Kwagalakwe">
+                        </a>
+                        
+                            <a data-fancybox="gallery" data-caption="David Ssebuliba" href="David Ssebuliba.jpg">
+                              <img src="David Ssebuliba.jpg" alt="">
+                            </a>
+                            
+                                <a data-fancybox="gallery" data-caption="Enock Mugabi Ssebuliba" href="Enock Mugabi Ssebuliba.jpg">
+                                  <img src="Enock Mugabi Ssebuliba.jpg" alt="">
+                                </a>
+                                
+                                    <a data-fancybox="gallery" data-caption="Eve Laurine" href="Eve Laurine.jpg">
+                                      <img src="Eve Laurine.jpg" alt="">
+                                    </a>
+                                    
+                                        <a data-fancybox="gallery" data-caption="Ezra Enock Mugabi Ssebuliba" href="Ezra Enock Mugabi Ssebuliba.jpg">
+                                          <img src="Ezra Enock Mugabi Ssebuliba.jpg" alt="Ezra Enock Mugabi Ssebuliba">
+                                        </a>
+                                        
+                                            <a data-fancybox="gallery" data-caption="Gladys Grace Nambalirwa Tendo" href="Gladys Grace Nambalirwa Tendo.jpg">
+                                              <img src="Gladys Grace Nambalirwa Tendo.jpg" alt="Gladys Grace Nambalirwa Tendo">
+                                            </a>
+                                            
+                                                <a data-fancybox="gallery" data-caption="Hannington Ssebuliba" href="Hannington Ssebuliba.jpg">
+                                                  <img src="Hannington Ssebuliba.jpg" alt="">
+                                                </a>
+                                                
+                                                    <a data-fancybox="gallery" data-caption="Henry Mugerwa Mayanja" href="Henry Mugerwa Mayanja.jpg">
+                                                      <img src="Henry Mugerwa Mayanja.jpg" alt="">
+                                                    </a>
+                                                    
+                                                        <a data-fancybox="gallery" data-caption="Joel Silas Busuulwa" href="Joel Silas Busuulwa.jpg">
+                                                          <img src="Joel Silas Busuulwa.jpg" alt="">
+                                                        </a>
+                                                        
+                                                            <a data-fancybox="gallery" data-caption="Kawuma Derrick" href="Kawuma Derrick.jpg">
+                                                              <img src="Kawuma Derrick.jpg" alt="">
+                                                            </a>
+                                                            
+                                                                <a data-fancybox="gallery" data-caption="Kayongo Samuel" href="Kayongo Samuel.jpg">
+                                                                  <img src="Kayongo Samuel.jpg" alt="">
+                                                                </a>
+                                                                
+                                                                    <a data-fancybox="gallery" data-caption="Kyewalabye Collines" href="Kyewalabye Collines.jpg">
+                                                                      <img src="Kyewalabye Collines.jpg" alt="">
+                                                                    </a>
+                                                                    
+                                                                        <a data-fancybox="gallery" data-caption="Liana" href="Liana.jpg">
+                                                                          <img src="Liana.jpg" alt="">
+                                                                        </a>
+                                                                        
+                                                                            <a data-fancybox="gallery" data-caption="Linda" href="Linda.jpg">
+                                                                              <img src="Linda.jpg" alt="">
+                                                                            </a>
+                                                                            
+                                                                                <a data-fancybox="gallery" data-caption="Mulungi Liam" href="Mulungi Liam.jpg">
+                                                                                  <img src="Mulungi Liam.jpg" alt="">
+                                                                                </a>
+                                                                                
+                                                                                    <a data-fancybox="gallery" data-caption="Mutambuze Saul" href="Mutambuze Saul.jpg">
+                                                                                      <img src="Mutambuze Saul.jpg" alt="">
+                                                                                    </a>
+                                                                                    
+                                                                                        <a data-fancybox="gallery" data-caption="Mutumba Jesse Paul" href="Mutumba Jesse Paul.jpg">
+                                                                                          <img src="Mutumba Jesse Paul.jpg" alt="">
+                                                                                        </a>
+                                                                                        
+                                                                                            <a data-fancybox="gallery" data-caption="Nakakaawa Jane" href="Nakakaawa Jane.jpg">
+                                                                                              <img src="Nakakaawa Jane.jpg" alt="">
+                                                                                            </a>
+                                                                                            
+                                                                                                <a data-fancybox="gallery" data-caption="Nakayiwa Jane Christine Birimuye Kwagalakwe Kiwumulo" href="Nakayiwa Jane.jpg">
+                                                                                                  <img src="Nakayiwa Jane.jpg" alt="Nakayiwa Jane Christine Birimuye Kwagalakwe Kiwumulo">
+                                                                                                </a>
+                                                                                                
+                                                                                                    <a data-fancybox="gallery" data-caption="Nambalirwa Vivian Faith Kwagalakwe" href="Nambalirwa Vivian Faith Kwagalakwe.jpg">
+                                                                                                      <img src="Nambalirwa Vivian Faith Kwagalakwe.jpg" alt="Nambalirwa Vivian Faith Kwagalakwe">
+                                                                                                    </a>
+                                                                                                    
+                                                                                                        <a data-fancybox="gallery" data-caption="Nilsar" href="Nilsar.jpg">
+                                                                                                          <img src="Nilsar.jpg" alt="">
+                                                                                                        </a>
+                                                                                                        
+                                                                                                            <a data-fancybox="gallery" data-caption="Nsereko Eriab" href="Nsereko Eriab.jpg">
+                                                                                                              <img src="Nsereko Eriab.jpg" alt="Nsereko Eriab">
+                                                                                                            </a>
+                                                                                                            
+                                                                                                                <a data-fancybox="gallery" data-caption="Nsereko Moses" href="Nsereko Moses.jpg">
+                                                                                                                  <img src="Nsereko Moses.jpg" alt="">
+                                                                                                                </a>
+                                                                                                                
+                                                                                                                    <a data-fancybox="gallery" data-caption="Primah & Mariam" href="Primah & Mariam.jpg">
+                                                                                                                      <img src="Primah & Mariam.jpg" alt="">
+                                                                                                                    </a>
+                                                                                                                    
+                                                                                                                        <a data-fancybox="gallery" data-caption="Racheal Ttendo Nantege" href="Racheal Ttendo Nantege.jpg">
+                                                                                                                          <img src="Racheal Ttendo Nantege.jpg" alt="Racheal Ttendo Nantege">
+                                                                                                                        </a>
+                                                                                                                        
+                                                                                                                            <a data-fancybox="gallery" data-caption="Ssebuliba David" href="Ssebuliba David.jpg">
+                                                                                                                              <img src="Ssebuliba David.jpg" alt="Ssebuliba David">
+                                                                                                                            </a>
+                                                                                                                            
+                                                                                                                                <a data-fancybox="gallery" data-caption="Ssebuliba Enock" href="Ssebuliba Enock.jpg">
+                                                                                                                                  <img src="Ssebuliba Enock.jpg" alt="">
+                                                                                                                                </a>
+                                                                                                                                
+                                                                                                                                    <a data-fancybox="gallery" data-caption="Ssebuliba Enock" href="Ssuubi Miriam.jpg">
+                                                                                                                                      <img src="Ssuubi Miriam.jpg" alt="Ssebuliba Enock">
+                                                                                                                                    </a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+   
+  </div>
+</section>
+
+
+<!-- Overview Section -->
+<section id="family-overview" class="container mt-5">
+
+    <br>
+<section id="entertainment">
+    <h2>Entertainment</h2>
+    <p>
+        <span class="first-line">Enjoy thousands of free Luganda Translated Movies with your family! You can either watch them online or download them for offline viewing.</span>
+    </p>
+    <p><a href="https://fresh-teacher.github.io/movie.html" class="btn btn-info blink"><strong>WATCH NOW! ▶️</strong></a></p>
+</section>
+
+  <h2>Ancestral Home</h2>
+  <p>Our ancestral home belongs to the Late Reverend Enock Kyaluzi Ssebuliba and it is located at Kikungwe, a village in Kimanya-Kabonera, Bukoto County, Central Uganda.</p>
+</section>
+
+
+<!-- Map Section -->
+<section id="location" class="container mt-3">
+  <div class="map-container">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.730053557498!2d31.662170135822333!3d-0.3811189353008027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19d78879ad6c2299%3A0x14a547d3f848ec77!2sKikungwe%20Church%20Of%20Uganda!5e0!3m2!1sen!2sug!4v1701506240101!5m2!1sen!2sug" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
+
+<!-- Footer Section -->
+<footer>
+  <p>&copy; The Ssebulibas <span id="currentYear"></span> <br> All Rights Reserved</p>
+</footer>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <script>
+      // Family tree data for Enock and Christine
+  const familyTreeData = {
+    name: 'Enock Ssebuliba and Christine Jane',
+    children: [
+    {
+        name: 'Nansereko Margaret',
+        children: [
+        { name: 'Kayinga' },
+        { name: 'Ssegawa' },
+                  ]
+      },
+      {
+        name: 'Busuulwa Emmie',
+        children: [
+        {
+            name: 'Nakayiwa Jane Christine',
+          },
+          {
+            name: 'Nantege Racheal Tendo',
+          },
+          {
+            name: 'Busuulwa Allan Isaac',
+          },
+          {
+            name: 'Nantumbwe Winnie Angella',
+            children: [
+            {
+            name: 'Ssemwogerere Nilsar Arielle',
+          }
+            ]
+          },
+
+
+          // Add more grandchildren as needed
+        ]
+      },
+      {
+        name: 'Kawuma Samuel',
+        children: [
+        {
+            name: 'Nabanoba Annet',
+            children: [
+            {
+            name: 'Pending',
+          },
+          {
+            name: 'Pending',
+          },
+          {
+            name: 'Pending',
+          },
+          {
+            name: 'Pending',
+          },
+          
+            ]
+          },
+        
+          {
+            name: 'Ssebuliba Enock',
+            children: [
+            {
+            name: 'Elijah Ssebuliba Mark',
+          },
+          {
+            name: 'Elianah Nassimbwa Eseza',
+          },
+            ]
+          },
+          {
+            name: 'Namale Audrine Ritah',
+            children: [
+            {
+            name: 'Pending',
+          },
+          {
+            name: 'Pending',
+          },
+          
+            ]
+          },
+          {
+            name: 'Nantumbwe Agnes',
+            children: [
+            {
+            name: 'Pending',
+          },
+          {
+            name: 'Pending',
+          },
+          
+            ]
+          },
+          {
+            name: 'Busuulwa Esau',
+            children: [
+            {
+            name: 'Pending',
+          },
+          
+            ]
+          },
+          {
+            name: 'Nsereko Eriab',
+            children: [
+
+            ]
+          },
+          // Add more grandchildren as needed
+        ]
+      },
+      
+    {
+        name: 'Kyewalabye Robert',
+        children: [
+          {
+            name: 'Kayongo Samuel',
+            children: [
+              { name: 'Mulungi Liam' },
+              { name: 'Mulungi Liana' },
+              // Add more great grandchildren as needed
+            ]
+          },
+          {
+            name: 'Mutumba Jesse Paul',
+            
+          },
+          {
+            name: 'Kawuma Derrick',
+
+          },
+          {
+            name: 'Kyewalabye Collins',
+
+          },
+          {
+            name: 'Ssekamatte Raymond',
+
+          },
+          {
+            name: 'Nantege Gloria',
+
+          },
+          {
+            name: 'Ssuubi Miriam',
+
+          },
+          {
+            name: 'Kwagala Tivia',
+
+          },
+          {
+            name: 'Mutumba Eric',
+
+          },
+
+          // Add more grandchildren as needed
+        ]
+      },
+      {
+        name: 'Ssebuliba David',
+        children: [
+          {
+            name: 'Nakakaawa Jane Hellen',
+            children: [
+              { name: 'Pending' },
+              { name: 'Pending' },
+              // Add more great grandchildren as needed
+            ]
+          },
+          {
+            name: 'Nansereko Sharon',
+            
+          },
+          {
+            name: 'Nambalirwa Vivian Faith',
+            
+          },
+          {
+            name: 'Ssebuliba David Jnr.',
+            
+          },
+          {
+            name: 'Mutumba Gideon',
+            
+          },
+          
+          // Add more grandchildren as needed
+        ]
+      },
+      {
+        name: 'Nsereko Moses',
+        children: [
+          {name: 'Nansereko Cathy '},
+          {
+            name: 'Nalule Christine Liz',
+            
+          },
+          {
+            name: 'Nantege Carol Grace',
+            
+          },
+          
+        ]
+      },
+      {
+        name: 'Mugabi Enoch',
+        children: [
+        {
+            name: 'Kawuma David Paul Ziryawulamu',
+           
+          },
+          {
+            name: 'Ssebuliba Ezra Enock Mugabi',
+           
+          },
+          {
+            name: 'Namale Faith Harriet Mirembe',
+           
+          },
+          {
+            name: 'Nambalirwa Gladys Grace Tendo',
+           
+          },
+          
+          {
+            name: 'Nantumbwe Winnie',
+            children: [
+              { name: 'Unknown' },
+              // Add more great grandchildren as needed
+            ]
+          },
+          // Add more grandchildren as needed
+        ]
+      },
+      {
+        name: 'Nantumbwe Milly',
+        children: [
+        { name: 'Nangobi Priscilla' },            ]
+      },
+      {
+        name: 'Ssebuliba Hannington',
+        children: [
+          {
+            name: 'Ssebuliba Arnold',
+        
+          },
+          {
+        name: 'Lule Brian',
+      },
+      {
+            name: 'Busuulwa Joel Siras',
+            
+          },
+          
+          {
+            name: 'Nantumbwe Christine Ronah',
+            
+          },
+          
+          // Add more grandchildren as needed
+        ]
+      },
+      {
+        name: 'Tendo Sarah',
+        children: [
+        { name: 'Ssemakula Samuel' },
+        { name: 'Nabiryo Lillian' },            ]
+      },
+      {
+        name: 'Mutambuze Saul',
+        children: [
+        { name: 'No children' },
+                  ]
+      },
+      
+    ]
+  };
+
+  
+// Function to generate family tree HTML
+function generateFamilyTree(tree, depth = 0, parentName = '') {
+  const indent = '  '.repeat(depth);
+  let buttonColorClass = '';
+  let nameColorClass = '';
+
+  // Determine button and name color classes based on depth and parentName
+  if (depth === 0) {
+    buttonColorClass = 'btn-primary'; // Blue for parents
+    nameColorClass = 'text-primary';
+  } else if (depth === 1) {
+    buttonColorClass = 'btn-success'; // Green for children
+    nameColorClass = 'text-success';
+  } else if (depth === 2) {
+    buttonColorClass = 'btn-danger'; // Red for grandchildren
+    nameColorClass = 'text-danger';
+  } else if (depth === 3) {
+    buttonColorClass = 'btn-warning'; // Orange for great-grandchildren
+    nameColorClass = 'text-warning';
+  } else if (depth >= 4) {
+    buttonColorClass = 'btn-secondary'; // Grey for beyond great-grandchildren
+    nameColorClass = 'text-secondary';
+  }
+
+  let html = `${indent}<ul>\n${indent}  <li><span class="${nameColorClass}">${tree.name}</span>`;
+
+  if (tree.children && tree.children.length > 0) {
+    html += `\n${indent}    <button class="btn ${buttonColorClass} btn-sm ml-2" onclick="toggleChildren(this, '${tree.name}')">View ${tree.name}'s Children</button>`;
+    html += `\n${indent}    <div class="children" style="display: none;">`;
+
+    tree.children.forEach(child => {
+      html += generateFamilyTree(child, depth + 1, tree.name);
+    });
+
+    html += `${indent}    </div>`;
+  }
+
+  html += `${indent}  </li>\n${indent}</ul>`;
+  return html;
+}
+
+// Function to toggle visibility of children
+function toggleChildren(btn, parentName) {
+  const childrenDiv = btn.nextElementSibling;
+  childrenDiv.style.display = childrenDiv.style.display === 'none' ? 'block' : 'none';
+  btn.innerText = childrenDiv.style.display === 'none' ? `View ${parentName}'s Children` : `Hide ${parentName}'s Children`;
+}
+
+
+
+  // Function to toggle the entire family tree
+  function toggleFamilyTree() {
+    const treeDiv = document.getElementById('familyTree');
+    treeDiv.innerHTML = generateFamilyTree(familyTreeData);
+  }
+
+  // Event listener for the main toggle button
+  document.getElementById('toggleBtn').addEventListener('click', function () {
+    const btn = this;
+    btn.innerText = btn.innerText === 'View Family Tree' ? 'Hide Family Tree' : 'View Family Tree';
+    
+    if (btn.innerText === 'Hide Family Tree') {
+      // Display Enock and Christine's information when the button is clicked
+      toggleFamilyTree();
+    } else {
+      // Hide the family tree when collapsing
+      document.getElementById('familyTree').innerHTML = '';
+    }
+  });
+
+ let countdown = document.querySelector('.countdown');
+  const output = countdown.innerHTML;
+
+  const countDownDate = function() {
+    let timeleft = new Date(countdown.getAttribute('data-count')).getTime() - new Date().getTime();
+
+    let days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+
+    countdown.innerHTML = output.replace('%d', days).replace('%h', hours).replace('%m', minutes).replace('%s', seconds);
+  }
+  countDownDate();
+  setInterval(countDownDate, 1000);
+
+document.getElementById('currentYear').innerText = new Date().getFullYear();
+
+    // Toggle read more/less functionality
+    function toggleReadMore() {
+      var moreText = document.querySelector('.read-more-content');
+      var btnText = document.getElementById("readMoreBtn");
+
+      if (moreText.style.display === "none") {
+        moreText.style.display = "inline";
+        btnText.innerHTML = " Show less";
+      } else {
+        moreText.style.display = "none";
+        btnText.innerHTML = " Read more...";
+      }
+    }
+
+    $(document).ready(function() {
+    // Show the modal on page load
+    $('#usernameModal').modal('show');
+
+    // Handle form submission
+    $('#usernameForm').submit(function(e) {
+        e.preventDefault();
+        // Get the entered username and trim leading/trailing spaces
+        var username = $('#username').val().trim().toLowerCase();
+
+        // List of allowed family names (lowercase)
+        var allowedNames = [
+        "bakiranze", "balasa", "balimunsi", "bampigga", "bamwanjula", "bitalo", "bululu", "busuulwa",
+          "jjuuzi", "kabengwa", "kabizzi", "kaddu", "kasala", "katembe", "kateta", "kavavagalo", "kawuma",
+          "kayiwa", "kayongo", "kaziro", "kibaya", "kibombo", "kibugo", "kigembe", "kikaawa", "kiki", "kimanje",
+          "kinaalwa", "kirabira", "kiragga", "kiregeya", "kironde", "kitemagwa", "kivumu", "kizito", "kkonde",
+          "kkulanju", "kyambalango", "kyewalabye", "lukookera", "lule", "lwabiriza", "mabingo", "mabiriizi", "magaja",
+          "magala", "magoma", "makokwa", "male", "masanda", "mayengo", "mbiro", "mirundi", "misango", "miwanda",
+          "mpaka", "mugubya", "mujwiga", "mukaddemwangu", "mukooki", "mulaalira", "mulungu", "muluuli", "musuyi",
+          "muteeweta", "mutumba", "muwakanya", "nabbumba", "nabbwaga", "nakanyakaali", "nakatanza", "nankalanguse",
+          "nannyumba", "naayinda", "nkangufu", "nkayivu", "nnyago", "nogoli", "nsereko", "nsozi", "ntanzi", "ntembo",
+          "nviiri", "sikweyama", "ssebabi", "ssebatindira", "ssebitengero", "ssebuliba", "ssejjongo", "ssekamatte",
+          "ssekiremba", "ssekkonge", "ssemagulu", "ssemagwatala", "ssematimba", "ssemiti", "ssemmombwe", "ssennyomo",
+          "ssennyondo", "ssentumbwe", "sserukomaga", "ssettuba", "ssevvume", "ssewakiryanga", "ssikyemanywa",
+          "tebakyagenda", "waakuze", "walubandwa", "wantaate", "zingobukeedo", "balilaanye", "katana", "kiwaamaaso",
+          "kiwabudde", "lwantanya", "mbatudde", "mbawadde", "nababi", "nabanoba", "nabikaajumbe", "nabitengero", "nabwami",
+          "nabweggamo", "najjolo", "nakakaawa", "nakalembe", "nakamatte", "nakasinde", "nakatudde", "nakawuma", "nakayiwa",
+          "nakibuule", "nalule", "nalwanga", "namale", "nambalirwa", "nambi", "namboga", "nambooze", "namboyera", "nammembe",
+          "nango", "nansereko", "nantege", "nantumbwe", "nassimbwa", "ndyona", "nnaamala", "ntabadde", "mutambuze", "ssuubi"     
+        ];
+
+        // Check if the entered username is in the allowed list
+        if (allowedNames.includes(username)) {
+            // Get the current time
+            var currentTime = new Date().getHours();
+
+            // Determine the greeting based on the time of the day
+            var greeting = "";
+            if (currentTime >= 5 && currentTime < 12) {
+                greeting = "Good Morning";
+            } else if (currentTime >= 12 && currentTime < 18) {
+                greeting = "Good Afternoon";
+            } else {
+                greeting = "Good Evening";
+            }
+
+            // Update the welcome message on the page
+          // Update the welcome message on the page
+          $('#welcomeMessage').text(greeting + ' ' + username.charAt(0).toUpperCase() + username.slice(1) + '🤝');
+            // Close the modal
+            $('#usernameModal').modal('hide');
+
+            // Text-to-speech
+            speak('You are most welcome');
+        } else {
+            // Display an error message or take appropriate action
+            alert('Access denied! The name you used does not belong to the Kkobe Clan. Please try again...');
+        }
+    });
+});
+
+// Function to initiate text-to-speech
+function speak(text) {
+    var synth = window.speechSynthesis;
+    var utterance = new SpeechSynthesisUtterance(text);
+    synth.speak(utterance);
+}
+
+  // Function to show member details modal
+  function showMemberModal(member) {
+    // Replace this with the actual data for each family member
+    var memberData = {
+      name: member.getAttribute('data-member'),
+      age: member.getAttribute('data-age') || "Age not specified",
+      contact: member.getAttribute('data-contact') || "Contact not specified",
+      location: member.getAttribute('data-location') || "Location not specified",
+      parents: member.getAttribute('data-parents') || "Parents not specified",
+      image: member.getAttribute('data-image') || "default.jpg" // Replace with the default image path
+    };
+
+    // Populate modal with member data
+    document.getElementById('memberModalTitle').innerText = "Family Member Details";
+    document.getElementById('memberName').innerText = memberData.name;
+    document.getElementById('memberAge').innerText =  memberData.age;
+    document.getElementById('memberContact').innerText =  memberData.contact;
+    document.getElementById('memberLocation').innerText = memberData.location;
+    document.getElementById('memberParents').innerText =  memberData.parents;
+    document.getElementById('memberImage').src = memberData.image;
+
+    // Show the modal
+    $('#memberModal').modal('show');
+  }
+
+  // Add click event listeners to each family member
+  var familyList = document.getElementById('familyList');
+  var familyMembers = familyList.getElementsByTagName('li');
+
+  for (var i = 0; i < familyMembers.length; i++) {
+    familyMembers[i].addEventListener('click', function () {
+      showMemberModal(this);
+    });
+  }
+  </script>
+
+  <!-- Scroll-to-top button -->
+<button id="scrollToTopBtn" class="btn btn-primary" title="Go to top">Top</button>
+
+</body>
+</html>
