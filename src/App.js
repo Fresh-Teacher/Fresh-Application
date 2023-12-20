@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
-const repo = "https://fresh-teacher.github.io";
+const repo = "https://ujenzi.vercel.app/";
 let deferredPrompt;
 
 function App() {
@@ -50,7 +50,7 @@ function App() {
         <img src="logo.png" alt="Fresh App Logo" className="App-logo" />
   
         {/* Company Heading */}
-        <h2>Fresh Teacher's Technologies</h2>
+        <h2>FRESH TEACHER'S TECHNOLOGIES</h2>
 
         {installable ? (
           countdown > 0 ? (
@@ -66,7 +66,7 @@ function App() {
             <>
               <p>
                 If the installation button did not appear, click{' '}
-                <a href="src/Fresh App.apk" download>
+                <a href="Fresh App.apk" download>
                   here
                 </a>{' '}
                 to download the APK.
