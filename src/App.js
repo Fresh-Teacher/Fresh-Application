@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
-const repo = "https://ujenzi.vercel.app/";
+const repo = "https://fresh-teacher.github.io";
 let deferredPrompt;
 
 function App() {
@@ -47,10 +47,15 @@ function App() {
     <div className="App">
       <header className="App-header">
         {/* Logo Image */}
-        <img src="logo.png" alt="Fresh App Logo" className="App-logo" />
+        <img src="logo.png" alt="FRESH Logo" className="App-logo" />
   
         {/* Company Heading */}
         <h2>FRESH TEACHER'S TECHNOLOGIES</h2>
+
+        {/* Countdown Timer */}
+        <p>
+          Countdown: {countdown} seconds.
+        </p>
 
         {installable ? (
           countdown > 0 ? (
@@ -82,7 +87,7 @@ function App() {
         ) : (
           <p>
             <a href={repo}>
-            <strong>Go to Homepage</strong>
+              <strong>Go to Homepage</strong>
             </a>
           </p>
         )}
