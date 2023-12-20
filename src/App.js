@@ -54,7 +54,7 @@ function App() {
 
         {/* Countdown Timer */}
         <p>
-                <strong>The Install Button <em>may</em> appear in {countdown} seconds.</strong>
+                <strong>The Installation Button <em>may</em> appear in {countdown} seconds.</strong>
               </p>
 
         {installable ? (
