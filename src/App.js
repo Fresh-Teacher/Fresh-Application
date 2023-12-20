@@ -54,15 +54,13 @@ function App() {
 
         {/* Countdown Timer */}
         <p>
-          Countdown: {countdown} seconds.
-        </p>
+                The Install Button will appear in {countdown} seconds.
+              </p>
 
         {installable ? (
           countdown > 0 ? (
             <>
-              <p>
-                The Install Button will appear in {countdown} seconds.
-              </p>
+
               <button className="install-button" onClick={handleInstallClick}>
                 <strong>INSTALL THE FRESH APP</strong> 📥
               </button>
