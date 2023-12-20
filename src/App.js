@@ -77,7 +77,7 @@ function App() {
               <p>
                 {' '}
                 <a href={repo}>
-                  <strong>Go to Homepage</strong>
+                  <strong>Go to Fresh Teacher's Library 📚</strong>
                 </a>{' '}
               </p>
             </>
@@ -85,7 +85,7 @@ function App() {
         ) : (
           <p>
             <a href={repo}>
-              <strong>Go to Homepage</strong>
+              <strong>Go to Fresh Teacher's Library 📚</strong>
             </a>
           </p>
         )}
