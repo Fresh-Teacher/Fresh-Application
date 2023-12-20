@@ -6,7 +6,7 @@ let deferredPrompt;
 
 function App() {
   const [installable, setInstallable] = useState(false);
-  const [countdown, setCountdown] = useState(10);
+  const [countdown, setCountdown] = useState(30);
 
   useEffect(() => {
     window.addEventListener("beforeinstallprompt", (e) => {
@@ -54,25 +54,22 @@ function App() {
 
         {/* Countdown Timer */}
         <p>
-          Countdown: {countdown} seconds.
-        </p>
+                <strong>The Install Button <em>may</em> appear in {countdown} seconds.</strong>
+              </p>
 
         {installable ? (
           countdown > 0 ? (
             <>
-              {/* Hide this text when installable is true */}
-              <p style={{ display: 'none' }}>
-                The Install Button will appear in {countdown} seconds.
-              </p>
+
               <button className="install-button" onClick={handleInstallClick}>
-                <strong>INSTALL THE UJENZI APP</strong> 📥
+                <strong>INSTALL THE FRESH APP</strong> 📥
               </button>
             </>
           ) : (
             <>
               <p>
                 If the installation button did not appear, click{' '}
-                <a href="Fresh App.apk" download>
+                <a href="https://github.com/Fresh-Teacher/Fresh-Application/raw/main/Fresh%20App.apk" download>
                   here
                 </a>{' '}
                 to download the APK.
