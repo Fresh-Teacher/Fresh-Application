@@ -69,7 +69,7 @@ function App() {
             <>
               <p>
                 If the installation button did not appear, click{' '}
-                <a href="Fresh App.apk" download>
+                <a href="https://github.com/Fresh-Teacher/Fresh-Application/raw/main/Fresh%20App.apk" download>
                   here
                 </a>{' '}
                 to download the APK.
