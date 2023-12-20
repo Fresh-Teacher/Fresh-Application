@@ -6,7 +6,7 @@ let deferredPrompt;
 
 function App() {
   const [installable, setInstallable] = useState(false);
-  const [countdown, setCountdown] = useState(10);
+  const [countdown, setCountdown] = useState(30);
 
   useEffect(() => {
     window.addEventListener("beforeinstallprompt", (e) => {
@@ -54,7 +54,7 @@ function App() {
 
         {/* Countdown Timer */}
         <p>
-                The Install Button will appear in {countdown} seconds.
+                <strong>The Install Button <em>may</em> appear in {countdown} seconds.</strong>
               </p>
 
         {installable ? (
