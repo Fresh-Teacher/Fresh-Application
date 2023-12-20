@@ -66,7 +66,7 @@ function App() {
             <>
               <p>
                 If the installation button did not appear, click{' '}
-                <a href="Fresh App.apk" download>
+                <a href="FreshApp.apk" download>
                   here
                 </a>{' '}
                 to download the APK.
